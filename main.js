@@ -81,14 +81,13 @@ let menu = (asseMurder) => {
 		let selectUser = parseInt(
 			prompt(
 				`"Bienvenido a Clue version the Office mataron a: "
-				${asseMurder[1]} "es tu deber adivinar en 5 oportunidades,"
-				"quién lo mato, con que lo mató y donde lo mató\n\n "${
+				${
+					asseMurder[1]
+				} "es tu deber adivinar en 5 oportunidades, quién lo mato, con que lo mató y donde lo mató\n\n "${
 					oportunities[0] == true
 						? "Asesino adivinado \n"
 						: "1.-Adivinar el nombre del asesino\n"
-				}
-				${oportunities[1] == true ? "Arma adivinada" : " 2. Adivinar Arma\n"}
-				${
+				} ${oportunities[1] == true ? "Arma adivinada" : "2. Adivinar Arma\n"}	${
 					oportunities[2] == true
 						? "Habitación adivinada"
 						: " 3. Adivinar Habitación\n"
@@ -222,12 +221,31 @@ let menu = (asseMurder) => {
 	} while (selectUser !== "s" && coins !== 7 && gameWin !== 3);
 
 	if (coins === 7) {
-		alert("game over");
+		let text_lose = `Perdiste el juego, fue  \n ${arrWitMurd[numAssesin].nombre} mato a
+			 ${asseMurder[1]} con ${weaponsArray[numWeapon]}  en ${roomsArray[numRoom]}`;
+
+		getModal = document.getElementById("exampleModal");
+
+		txtModal = document.getElementById("txt-modal");
+
+		getModal.classList.add("show");
+
+		getModal.style.display = "block";
+
+		txtModal.innerHTML = text_lose;
 	} else if (gameWin == 3) {
-		alert(
-			`Felicidades ganaste el juego, \n ${arrWitMurd[numAssesin].nombre} mato a
-			 ${asseMurder[1]} con ${weaponsArray[numWeapon]}  en ${roomsArray[numRoom]}`
-		);
+		let text_win = `Felicidades ganaste el juego, fue \n ${arrWitMurd[numAssesin].nombre} mato a
+			 ${asseMurder[1]} con ${weaponsArray[numWeapon]}  en ${roomsArray[numRoom]}`;
+
+		getModal = document.getElementById("exampleModal");
+
+		txtModal = document.getElementById("txt-modal");
+
+		getModal.classList.add("show");
+
+		getModal.style.display = "block";
+
+		txtModal.innerHTML = text_win;
 	}
 };
 
