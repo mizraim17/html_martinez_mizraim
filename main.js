@@ -1,5 +1,7 @@
 ///Game of clue version The office
 
+//Variables of games
+
 let selectUser = 0;
 
 const suspectsArray = [
@@ -24,35 +26,23 @@ const weaponsArray = [
 	"Engrapadora",
 ];
 
+//Function generate number random depending of size of array
 let doRandom = (arrSearch) =>
 	Math.round(Math.random() * (arrSearch.length - 1));
 
+//Generate array with person die because he dont cant be the murder
 let listWithoutMurder = (nameDiedPerson) => {
-	let arrWitMurder = [],
-		newList;
 	newList = suspectsArray.filter((item) => item.nombre !== nameDiedPerson);
-
 	return newList;
 };
 
-let genereAssesinMurder = (fue) => {
-	let arrayAssesinDied = [];
-
-	let numDiedPerson = parseInt(doRandom(suspectsArray));
-
-	// alert(`"numero muerto" ${numDiedPerson}`);
+let genereAssesinMurder = () => {
+	let arrayAssesinDied = [],
+		numDiedPerson = parseInt(doRandom(suspectsArray)),
+		listNew = listWithoutMurder(arrayAssesinDied[1]);
 
 	arrayAssesinDied[1] = suspectsArray[numDiedPerson].nombre;
-
-	// alert(`arrayAssesinDied[1]  ${arrayAssesinDied[1]}`);
-
-	let listNew = listWithoutMurder(arrayAssesinDied[1]);
-
 	arrayAssesinDied[0] = listNew;
-
-	// console.log("number asesino", numAssesinPerson);
-
-	// alert(`Asesino= ${arrayAssesinDied[0]} - Muerto= ${arrayAssesinDied[1]}`);
 
 	return arrayAssesinDied;
 };
@@ -70,9 +60,10 @@ let menu = (asseMurder) => {
 	let numRoom = parseInt(doRandom(roomsArray));
 	let gameWin = 0;
 
-	alert(`numAssesin ${numAssesin}`);
-	alert(`numWeapon ${numWeapon}`);
-	alert(`numnumRoomWeapon ${numRoom}`);
+	//Me ayuda a encontrar el misterio y ganar
+	// alert(`numAssesin ${numAssesin}`);
+	// alert(`numWeapon ${numWeapon}`);
+	// alert(`numnumRoomWeapon ${numRoom}`);
 
 	do {
 		// alert(`oportunities ${oportunities}`);
@@ -122,10 +113,6 @@ let menu = (asseMurder) => {
 
 				do {
 					optiAssesin = parseInt(prompt(`${instructions}`));
-
-					// alert(`optiAssesin ${optiAssesin}`);
-					// alert(`asseMurder= ${numAssesin}`);
-
 					coins++;
 
 					// alert(`coins=${coins}`);
@@ -158,10 +145,6 @@ let menu = (asseMurder) => {
 
 				do {
 					optiWeapons = parseInt(prompt(`${instructions2}`));
-
-					// alert(`optiAssesin ${optiWeapons}`);
-					// alert(`numWeapon=${numWeapon}`);
-
 					coins++;
 				} while (numWeapon !== optiWeapons && coins < 7);
 
@@ -192,9 +175,6 @@ let menu = (asseMurder) => {
 
 				do {
 					optiPlace = parseInt(prompt(`${instructions3}`));
-
-					// alert(`optiAssesin ${optiPlace}`);
-					// alert(`numRoom=${numRoom}`);
 
 					coins++;
 				} while (numRoom !== optiPlace && coins < 7);
