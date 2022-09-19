@@ -70,9 +70,9 @@ let menu = (asseMurder) => {
 	let numRoom = parseInt(doRandom(roomsArray));
 	let gameWin = 0;
 
-	// alert(`numAssesin ${numAssesin}`);
-	// alert(`numWeapon ${numWeapon}`);
-	// alert(`numnumRoomWeapon ${numRoom}`);
+	alert(`numAssesin ${numAssesin}`);
+	alert(`numWeapon ${numWeapon}`);
+	alert(`numnumRoomWeapon ${numRoom}`);
 
 	do {
 		// alert(`oportunities ${oportunities}`);
@@ -87,7 +87,9 @@ let menu = (asseMurder) => {
 					oportunities[0] == true
 						? "Asesino adivinado \n"
 						: "1.-Adivinar el nombre del asesino\n"
-				} ${oportunities[1] == true ? "Arma adivinada" : "2. Adivinar Arma\n"}	${
+				} ${
+					oportunities[1] == true ? "Arma adivinada\n" : "2. Adivinar Arma\n"
+				}	${
 					oportunities[2] == true
 						? "Habitación adivinada"
 						: " 3. Adivinar Habitación\n"
@@ -221,8 +223,8 @@ let menu = (asseMurder) => {
 	} while (selectUser !== "s" && coins !== 7 && gameWin !== 3);
 
 	if (coins === 7) {
-		let text_lose = `Perdiste el juego, fue  \n ${arrWitMurd[numAssesin].nombre} mato a
-			 ${asseMurder[1]} con ${weaponsArray[numWeapon]}  en ${roomsArray[numRoom]}`;
+		let text_lose = `Perdiste el juego, fue  \n <b> ${arrWitMurd[numAssesin].nombre} </b> mato a
+			<b>  ${asseMurder[1]} </b>  con la <b> ${weaponsArray[numWeapon]} </b>   en <b>   ${roomsArray[numRoom]} </b> `;
 
 		labelModal = document.getElementById("exampleModalLabel");
 		labelModal.innerHTML = "GAMEEEEE OVERRRRR";
@@ -232,13 +234,14 @@ let menu = (asseMurder) => {
 		txtModal = document.getElementById("txt-modal");
 
 		getModal.classList.add("show");
+		getModal.classList.add("bg-danger");
 
 		getModal.style.display = "block";
 
 		txtModal.innerHTML = text_lose;
 	} else if (gameWin == 3) {
-		let text_win = `Felicidades ganaste el juego, fue \n ${arrWitMurd[numAssesin].nombre} mato a
-			 ${asseMurder[1]} con ${weaponsArray[numWeapon]}  en ${roomsArray[numRoom]}`;
+		let text_win = `Felicidades ganaste el juego, fue <b>  \n ${arrWitMurd[numAssesin].nombre} </b>   mato a
+			<b>  ${asseMurder[1]} </b> con la <b> ${weaponsArray[numWeapon]} </b>  en <b> ${roomsArray[numRoom]} </b> `;
 
 		labelModal = document.getElementById("exampleModalLabel");
 		labelModal.innerHTML = "WIIIIIN";
@@ -248,6 +251,7 @@ let menu = (asseMurder) => {
 		txtModal = document.getElementById("txt-modal");
 
 		getModal.classList.add("show");
+		getModal.classList.add("bg-success");
 
 		getModal.style.display = "block";
 
