@@ -224,6 +224,9 @@ let menu = (asseMurder) => {
 		let text_lose = `Perdiste el juego, fue  \n ${arrWitMurd[numAssesin].nombre} mato a
 			 ${asseMurder[1]} con ${weaponsArray[numWeapon]}  en ${roomsArray[numRoom]}`;
 
+		labelModal = document.getElementById("exampleModalLabel");
+		labelModal.innerHTML = "GAMEEEEE OVERRRRR";
+
 		getModal = document.getElementById("exampleModal");
 
 		txtModal = document.getElementById("txt-modal");
@@ -236,6 +239,9 @@ let menu = (asseMurder) => {
 	} else if (gameWin == 3) {
 		let text_win = `Felicidades ganaste el juego, fue \n ${arrWitMurd[numAssesin].nombre} mato a
 			 ${asseMurder[1]} con ${weaponsArray[numWeapon]}  en ${roomsArray[numRoom]}`;
+
+		labelModal = document.getElementById("exampleModalLabel");
+		labelModal.innerHTML = "WIIIIIN";
 
 		getModal = document.getElementById("exampleModal");
 
